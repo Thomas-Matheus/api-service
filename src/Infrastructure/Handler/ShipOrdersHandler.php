@@ -24,9 +24,6 @@ class ShipOrdersHandler implements XmlHandlerInterface
         $this->entityManager = $entityManager;
     }
 
-    /**
-     * @param UploadedFile $file
-     */
     public function handle(UploadedFile $file)
     {
         $xmlLoaded = json_decode(json_encode(simplexml_load_file($file->getRealPath())));
@@ -60,8 +57,8 @@ class ShipOrdersHandler implements XmlHandlerInterface
             if (!empty($shipOrder->items->item)) {
                 foreach ($shipOrder->items as $item) {
                     $itemEntity = new Item(
-                        (string) $item->title,
-                        (string) $item->note,
+                        $item->title,
+                        $item->note,
                         (int) $item->quantity,
                         (float) $item->price,
                         $shipOrderEntity

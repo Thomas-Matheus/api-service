@@ -5,3 +5,18 @@ App\Domain\Entity\Item:
     id:
       type: int
       groups: [dafault]
+    title:
+      type: string
+      groups: [dafault]
+    note:
+      type: string
+      groups: [ dafault ]
+    quantity:
+      type: int
+      groups: [dafault]
+    price:
+      type: float
+      groups: [dafault]
+    shiporder:
+      type: App\Domain\Entity\ShipOrder
+      groups: [dafault]

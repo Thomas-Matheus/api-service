@@ -23,13 +23,13 @@ class Item
 
     /**
      * Item constructor.
-     * @param $title
-     * @param $note
-     * @param $quantity
-     * @param $price
+     * @param string $title
+     * @param string $note
+     * @param int $quantity
+     * @param float $price
      * @param ShipOrder $shiporder
      */
-    public function __construct($title, $note, $quantity, $price, ShipOrder $shiporder)
+    public function __construct(string $title, string $note, int $quantity, float $price, ShipOrder $shiporder)
     {
         $this->title = $title;
         $this->note = $note;

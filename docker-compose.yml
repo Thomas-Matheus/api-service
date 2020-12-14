@@ -34,17 +34,13 @@ services:
       - PMA_ARBITRARY=1
 
   rabbitmq:
-    build: docker/rabbitmq
     container_name: rabbitmq
+    hostname: rabbitmq-host
+    image: rabbitmq:3.8.9-management-alpine
     volumes:
-      - ./.docker/rabbitmq/etc/:/etc/rabbitmq/:rw
-      - ./.docker/rabbitmq/data/:/var/lib/rabbitmq/:rw
-      - ./.docker/rabbitmq/logs/:/var/log/rabbitmq/:rw
-    environment:
-      RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
-      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
-      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
-    restart: unless-stopped
+      - ./.data/rabbitmq/:/var/lib/rabbitmq/
+      - ./.data/rabbitmq/logs/:/var/log/rabbitmq/
     ports:
       - 5672:5672
       - 15672:15672
+    restart: on-failure

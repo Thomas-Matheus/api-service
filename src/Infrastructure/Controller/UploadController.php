@@ -45,8 +45,6 @@ class UploadController extends AbstractController
             ];
 
             $this->get('session')->getFlashBag()->add($message['result'], $message['content']);
-
-
         }
 
         return $this

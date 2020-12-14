@@ -29,7 +29,7 @@ class ShipOrdersHandler implements XmlHandlerInterface
      */
     public function handle(UploadedFile $file)
     {
-        $xmlLoaded = simplexml_load_string(file_get_contents($file->getRealPath()));
+        $xmlLoaded = json_decode(json_encode(simplexml_load_file($file->getRealPath())));
 
         if (empty($xmlLoaded->shiporder)) {
             return;

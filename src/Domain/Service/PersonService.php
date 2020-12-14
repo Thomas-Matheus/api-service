@@ -54,6 +54,7 @@ class PersonService
 
                 foreach ($phones as $phone) {
                     $phoneEntity = new Phone($phone);
+                    $phoneEntity->setPerson($personEntity);
                     $personEntity->addPhones($phoneEntity);
                 }
             }

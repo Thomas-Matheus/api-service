@@ -25,6 +25,14 @@ class Phone
     }
 
     /**
+     * @param Person $person
+     */
+    public function setPerson(Person $person): void
+    {
+        $this->person = $person;
+    }
+
+    /**
      * @return int
      */
     public function getId(): int

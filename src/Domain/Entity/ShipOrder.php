@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Domain\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * Class ShipOrder.
@@ -17,10 +18,10 @@ class ShipOrder
 
     private ShipDestination $shipDestination;
     /**
-     * @var ArrayCollection
+     * @var Collection
      * @Serializer\SerializedName("item_shipord")
      */
-    private ArrayCollection $itens;
+    private Collection $itens;
 
     /**
      * ShipOrder constructor.
@@ -61,9 +62,9 @@ class ShipOrder
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection
      */
-    public function getItens(): ArrayCollection
+    public function getItens(): Collection
     {
         return $this->itens;
     }
@@ -74,5 +75,7 @@ class ShipOrder
     public function addItem(Item $item)
     {
         $this->itens->add($item);
+
+        return $this;
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Domain\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
@@ -16,10 +17,10 @@ class Person
 
     private string $name;
     /**
-     * @var ArrayCollection
+     * @var Collection
      * @Serializer\SerializedName("phone_person")
      */
-    private ArrayCollection $phones;
+    private Collection $phones;
 
     /**
      * Person constructor.
@@ -50,18 +51,21 @@ class Person
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection
      */
-    public function getPhones(): ArrayCollection
+    public function getPhones(): Collection
     {
         return $this->phones;
     }
 
     /**
      * @param Phone $phone
+     * @return $this
      */
     public function addPhones(Phone $phone)
     {
         $this->phones->add($phone);
+
+        return $this;
     }
 }

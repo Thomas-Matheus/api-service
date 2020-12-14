@@ -63,6 +63,7 @@ class ShipOrdersHandler implements XmlHandlerInterface
                         (float) $item->price,
                         $shipOrderEntity
                     );
+                    $itemEntity->setShiporder($shipOrderEntity);
                     $shipOrderEntity->addItem($itemEntity);
                 }
             }

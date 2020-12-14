@@ -10,8 +10,11 @@
         <field name="note" type="string" column="note" length="255" nullable="false"/>
         <field name="quantity" type="integer" column="quantity" nullable="false"/>
         <field name="price" type="float" column="price" nullable="false"/>
-        <many-to-one field="shiporder" target-entity="App\Domain\Entity\ShipOrder" inversed-by="itens">
-            <join-column name="ship_order_id" referenced-column-name="id" nullable="false"/>
+        <many-to-one field="shiporder" target-entity="App\Domain\Entity\ShipOrder" inversed-by="itens" fetch="EAGER">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+            <join-column name="ship_order_id" referenced-column-name="id" nullable="true"/>
         </many-to-one>
     </entity>
 </doctrine-mapping>

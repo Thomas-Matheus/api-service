@@ -39,6 +39,14 @@ class Item
     }
 
     /**
+     * @param ShipOrder $shiporder
+     */
+    public function setShiporder(ShipOrder $shiporder): void
+    {
+        $this->shiporder = $shiporder;
+    }
+
+    /**
      * @return int
      */
     public function getId(): int

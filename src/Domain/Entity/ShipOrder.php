@@ -72,6 +72,7 @@ class ShipOrder
 
     /**
      * @param Item $item
+     * @return $this
      */
     public function addItem(Item $item)
     {

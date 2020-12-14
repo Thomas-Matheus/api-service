@@ -1,0 +1,13 @@
+App\Domain\Entity\Phone:
+  xml_root_name: file
+  exlusion_policy: ALL
+  properties:
+    id:
+      type: int
+      groups: [dafault]
+    phone:
+      type: string
+      groups: [default]
+    person:
+      type: App\Domain\Entity\Person
+      groups: [default]

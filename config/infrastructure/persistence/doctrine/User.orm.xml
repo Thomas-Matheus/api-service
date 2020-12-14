@@ -1,0 +1,13 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="App\Domain\Entity\User" table="user" schema="api" read-only="true">
+        <id name="id" type="integer" column="user_id">
+            <generator strategy="AUTO"/>
+        </id>
+        <field name="username" type="string" column="username" precision="0" scale="0" nullable="false"/>
+        <field name="password" type="string" column="password" precision="0" scale="0" nullable="false"/>
+        <field name="isActive" type="boolean" column="active" nullable="false"/>
+    </entity>
+</doctrine-mapping>

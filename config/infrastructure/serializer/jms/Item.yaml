@@ -1,0 +1,7 @@
+App\Domain\Entity\Item:
+  xml_root_name: file
+  exlusion_policy: ALL
+  properties:
+    id:
+      type: int
+      groups: [dafault]

@@ -1,0 +1,17 @@
+App\Domain\Entity\ShipOrder:
+  xml_root_name: file
+  exlusion_policy: ALL
+  properties:
+    id:
+      type: int
+      groups: [dafault]
+    orderPerson:
+      type: App\Domain\Entity\Person
+      groups: [ default ]
+    shipDestination:
+      type: App\Domain\Entity\ShipDestination
+      groups: [ default ]
+    itens:
+      type: array
+      groups: [ default ]
+      serialized_name: item_shipord

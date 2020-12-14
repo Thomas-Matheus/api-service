@@ -1,0 +1,13 @@
+App\Domain\Entity\User:
+  xml_root_name: file
+  exlusion_policy: ALL
+  properties:
+    id:
+      type: int
+      groups: [dafault]
+    username:
+      type: string
+      groups: [dafault]
+    password:
+      type: string
+      groups: [dafault]

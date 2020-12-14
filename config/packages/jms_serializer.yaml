@@ -1,0 +1,13 @@
+jms_serializer:
+  handlers:
+    datetime:
+      default_format: 'Y-m-d\TH:i:sP'
+  metadata:
+    auto_detection: true
+    directories:
+      entity:
+        namespace_prefix: "App\\Domain\\Entity"
+        path: "%kernel.project_dir%/config/infrastructure/serializer/jms"
+  default_context:
+    serialization:
+      serialize_null: null

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+    {% block body %}
+        <main role="main" class="inner cover">
+            {% for result, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <span class="text text-{{ result }}">{{ message }}</span>
+                {% endfor %}
+            {% endfor %}
+            <div class="jumbotron">
+                <div class="container">
+                    <h1 class="text-center">Process your XML Files</h1>
+                    {{ form_start(form) }}
+                    <div class="form-group">
+                        {{ form_row(form.people) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.order) }}
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </main>
+    {% endblock %}

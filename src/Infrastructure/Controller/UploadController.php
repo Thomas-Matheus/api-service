@@ -37,18 +37,15 @@ class UploadController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            try {
-                $this->uploadService->consumerXml($form->getData());
+            $this->uploadService->consumerXml($form->getData());
 
-                $message = [
-                    'result' => 'success',
-                    'content' => 'File uploaded',
-                ];
+            $message = [
+                'result' => 'success',
+                'content' => 'File uploaded',
+            ];
 
-                $this->get('session')->getFlashBag()->add($message['result'], $message['content']);
-            } catch (\Throwable $e) {
-                dump($e); die;
-            }
+            $this->get('session')->getFlashBag()->add($message['result'], $message['content']);
+
 
         }
 
